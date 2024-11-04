@@ -1,4 +1,4 @@
-package WorkFind.courses.courseDTO;
+package zuhriddinscode.courses.courseDTO;
 
 import java.util.Date;
 import java.util.Objects;

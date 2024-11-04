@@ -1,7 +1,7 @@
-package WorkFind.courses.service;
+package zuhriddinscode.courses.service;
 
-import WorkFind.courses.courseEntity.TypeEntity;
-import WorkFind.courses.courseDTO.Course;
+import zuhriddinscode.courses.courseEntity.TypeEntity;
+import zuhriddinscode.courses.courseDTO.Course;
 import java.util.List;
 
 public interface ITypeService {

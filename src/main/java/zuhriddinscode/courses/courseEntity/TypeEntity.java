@@ -1,4 +1,4 @@
-package WorkFind.courses.courseEntity;
+package zuhriddinscode.courses.courseEntity;
 
 import jakarta.persistence.*;
 

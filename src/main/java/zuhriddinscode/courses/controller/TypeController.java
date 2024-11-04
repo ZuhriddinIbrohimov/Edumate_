@@ -1,8 +1,8 @@
-package WorkFind.courses.controller;
+package zuhriddinscode.courses.controller;
 
-import WorkFind.courses.courseEntity.TypeEntity;
-import WorkFind.courses.courseDTO.Course;
-import WorkFind.courses.service.ITypeService;
+import zuhriddinscode.courses.courseEntity.TypeEntity;
+import zuhriddinscode.courses.courseDTO.Course;
+import zuhriddinscode.courses.service.ITypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

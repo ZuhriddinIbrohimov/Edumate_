@@ -1,6 +1,6 @@
-package WorkFind.courses.repository;
+package zuhriddinscode.courses.repository;
 
-import WorkFind.courses.courseEntity.TypeEntity;
+import zuhriddinscode.courses.courseEntity.TypeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

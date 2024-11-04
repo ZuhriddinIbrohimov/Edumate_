@@ -1,9 +1,9 @@
-package WorkFind.courses.service.impl;
+package zuhriddinscode.courses.service.impl;
 
-import WorkFind.courses.courseEntity.TypeEntity;
-import WorkFind.courses.courseDTO.Course;
-import WorkFind.courses.repository.TypeRepository;
-import WorkFind.courses.service.ITypeService;
+import zuhriddinscode.courses.courseEntity.TypeEntity;
+import zuhriddinscode.courses.courseDTO.Course;
+import zuhriddinscode.courses.repository.TypeRepository;
+import zuhriddinscode.courses.service.ITypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
