@@ -20,6 +20,7 @@ public class CategoryEntity {
 
 
 
+
     public Integer getId() {
         return id;
     }
