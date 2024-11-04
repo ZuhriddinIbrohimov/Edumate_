@@ -1,10 +1,11 @@
 package zuhriddinscode.courses.courseEntity;
 
 import jakarta.persistence.*;
+import zuhriddinscode.category.entity.CategoryEntity;
 
 @Entity
-@Table(name = "category")
-public class TypeEntity {
+@Table(name = "course")
+public class CourseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

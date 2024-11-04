@@ -1,10 +1,12 @@
-package zuhriddinscode.courses.courseEntity;
+package zuhriddinscode.category.entity;
 
 import jakarta.persistence.*;
+import zuhriddinscode.courses.courseEntity.CourseEntity;
+
 import java.util.List;
 
 @Entity
-@Table(name ="type")
+@Table(name ="category")
 public class CategoryEntity {
 
     @Id
@@ -14,10 +16,9 @@ public class CategoryEntity {
     @Column(name = "name")
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "type_id")   // many tomonda create type
-    private List<TypeEntity> typeList;
-
+    @OneToMany()
+    @JoinColumn(name = "category_id")   // many tomonda create type
+    private List<CourseEntity> courses;
 
 
 
@@ -37,11 +38,11 @@ public class CategoryEntity {
         this.name = name;
     }
 
-    public List<TypeEntity> getTypeList() {
-        return typeList;
+    public List<CourseEntity> getCourses() {
+        return courses;
     }
 
-    public void setTypeList(List<TypeEntity> typeList) {
-        this.typeList = typeList;
+    public void setCourses(List<CourseEntity> courses) {
+        this.courses = courses;
     }
 }

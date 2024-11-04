@@ -3,7 +3,7 @@ package zuhriddinscode.courses.courseDTO;
 import java.util.Date;
 import java.util.Objects;
 
-public class Course {
+public class CourseDTO {
     private Integer id;
     private String name;
     private Integer typeId;
@@ -20,8 +20,8 @@ public class Course {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return Objects.equals(id, course.id) && Objects.equals(name, course.name) && Objects.equals(typeId, course.typeId) && Objects.equals(profile, course.profile) && Objects.equals(starttime, course.starttime) && Objects.equals(endtime, course.endtime) && Objects.equals(price, course.price) && Objects.equals(period, course.period) && Objects.equals(teacherId, course.teacherId) && Objects.equals(detailId, course.detailId) && Objects.equals(img, course.img);
+        CourseDTO courseDTO = (CourseDTO) o;
+        return Objects.equals(id, courseDTO.id) && Objects.equals(name, courseDTO.name) && Objects.equals(typeId, courseDTO.typeId) && Objects.equals(profile, courseDTO.profile) && Objects.equals(starttime, courseDTO.starttime) && Objects.equals(endtime, courseDTO.endtime) && Objects.equals(price, courseDTO.price) && Objects.equals(period, courseDTO.period) && Objects.equals(teacherId, courseDTO.teacherId) && Objects.equals(detailId, courseDTO.detailId) && Objects.equals(img, courseDTO.img);
     }
 
     @Override
