@@ -21,7 +21,6 @@ public class CategoryEntity {
     private List<CourseEntity> courses;
 
 
-
     public Integer getId() {
         return id;
     }

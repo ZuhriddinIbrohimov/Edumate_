@@ -7,11 +7,12 @@ public class CourseDTO {
     private Integer id;
     private String name;
     private Integer typeId;
+    private Float price;
+    private Integer period;
+
     private String profile;
     private Date starttime;
     private Date endtime;
-    private Float price;
-    private Integer period;
     private Integer teacherId;
     private Integer detailId;
     private String img;

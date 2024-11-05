@@ -26,22 +26,33 @@ public class CourseEntity {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
 
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
+//
 //    @Column(name = "profile")
 //    private Integer profileId;
-
+//
 //    @Column(name= "start_time")
 //    private Date starttime;
-
+//
 //    @Column(name= "end_time")
 //    private Date endtime;
-
+//
 //    @Column(name = "teacher_id")
 //    private Integer teacherId;
-
+//
 //    @Column(name ="detail_id")
 //    private Integer detailId;
-
+//
 //    @Column(name = "img")
 //    private String img;
 

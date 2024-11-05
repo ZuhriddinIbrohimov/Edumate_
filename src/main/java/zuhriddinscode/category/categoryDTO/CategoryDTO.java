@@ -1,10 +1,24 @@
 package zuhriddinscode.category.categoryDTO;
 
+import zuhriddinscode.courses.courseDTO.CourseDTO;
+import zuhriddinscode.courses.courseEntity.CourseEntity;
+import java.util.List;
+
 public class CategoryDTO {
 
     private Integer id;
 
     private String name;
+
+    private List<CourseDTO> courses;
+
+    public List<CourseDTO> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<CourseDTO> courses) {
+        this.courses = courses;
+    }
 
     public String getName() {
         return name;

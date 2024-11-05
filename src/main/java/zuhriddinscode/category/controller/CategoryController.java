@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import zuhriddinscode.category.categoryDTO.CategoryDTO;
 import zuhriddinscode.category.entity.CategoryEntity;
 import zuhriddinscode.category.service.ICategoryService;
-import zuhriddinscode.courses.courseDTO.CourseDTO;
 import zuhriddinscode.courses.courseEntity.CourseEntity;
 
 import java.util.List;
@@ -30,11 +29,9 @@ public class CategoryController {
         return categoryService.getCategoryById(id).getCourses();
     }
 
-
-    @PostMapping(value = "/addCourse")
+    @PostMapping(value = "/addCategory")
     public ResponseEntity<?> addCourse (@RequestBody CategoryDTO categoryDTO) {
       CategoryDTO categoryDTO1 = categoryService.addCategory(categoryDTO);
       return ResponseEntity.ok(categoryDTO1);
     }
-
 }
