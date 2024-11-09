@@ -1,7 +1,5 @@
-package zuhriddinscode.category.categoryDTO;
+package zuhriddinscode.something.dto;
 
-import zuhriddinscode.courses.courseDTO.CourseDTO;
-import zuhriddinscode.courses.courseEntity.CourseEntity;
 import java.util.List;
 
 public class CategoryDTO {
@@ -10,15 +8,17 @@ public class CategoryDTO {
 
     private String name;
 
-    private List<CourseDTO> courses;
+//    private List<CourseDTO> courses;
 
-    public List<CourseDTO> getCourses() {
-        return courses;
-    }
 
-    public void setCourses(List<CourseDTO> courses) {
-        this.courses = courses;
-    }
+//
+//    public List<CourseDTO> getCourses() {
+//        return courses;
+//    }
+//
+//    public void setCourses(List<CourseDTO> courses) {
+//        this.courses = courses;
+//    }
 
     public String getName() {
         return name;

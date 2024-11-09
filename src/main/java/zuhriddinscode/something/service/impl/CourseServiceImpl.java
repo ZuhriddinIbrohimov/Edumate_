@@ -1,12 +1,11 @@
-package zuhriddinscode.courses.service.impl;
+package zuhriddinscode.something.service.impl;
 
-import zuhriddinscode.courses.courseEntity.CourseEntity;
-import zuhriddinscode.courses.courseDTO.CourseDTO;
-import zuhriddinscode.courses.repository.CourseRepository;
-import zuhriddinscode.courses.service.ICourseService;
+import zuhriddinscode.something.entity.CourseEntity;
+import zuhriddinscode.something.dto.CourseDTO;
+import zuhriddinscode.something.repository.CourseRepository;
+import zuhriddinscode.something.service.ICourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +25,14 @@ public class CourseServiceImpl implements ICourseService {
 
     @Override
     public CourseDTO add(CourseDTO courseDTO) {
-        courseDTOList.add(courseDTO);
+//        courseDTOList.add(courseDTO);
 
         CourseEntity entity = new CourseEntity();
         entity.setName(courseDTO.getName());
         entity.setTypeId(courseDTO.getTypeId());
         entity.setPeriod(courseDTO.getPeriod());
         entity.setPrice(courseDTO.getPrice());
+
         repository.save(entity);
         return courseDTO;
     }

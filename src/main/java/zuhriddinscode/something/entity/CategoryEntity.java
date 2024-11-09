@@ -1,9 +1,10 @@
-package zuhriddinscode.category.entity;
+package zuhriddinscode.something.entity;
 
 import jakarta.persistence.*;
-import zuhriddinscode.courses.courseEntity.CourseEntity;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name ="category")
@@ -16,9 +17,9 @@ public class CategoryEntity {
     @Column(name = "name")
     private String name;
 
-    @OneToMany()
-    @JoinColumn(name = "category_id")   // many tomonda create type
-    private List<CourseEntity> courses;
+//    @OneToMany()
+//    @JoinColumn(name = "category_id")   // many tomonda create type
+//    private List<CourseEntity> courses;
 
 
     public Integer getId() {
@@ -37,11 +38,11 @@ public class CategoryEntity {
         this.name = name;
     }
 
-    public List<CourseEntity> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(List<CourseEntity> courses) {
-        this.courses = courses;
-    }
+//    public List<CourseEntity> getCourses() {
+//        return courses;
+//    }
+//
+//    public void setCourses(List<CourseEntity> courses) {
+//        this.courses = courses;
+//    }
 }

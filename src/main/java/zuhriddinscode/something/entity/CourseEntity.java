@@ -1,7 +1,6 @@
-package zuhriddinscode.courses.courseEntity;
+package zuhriddinscode.something.entity;
 
 import jakarta.persistence.*;
-import zuhriddinscode.category.entity.CategoryEntity;
 
 @Entity
 @Table(name = "course")
@@ -55,7 +54,6 @@ public class CourseEntity {
 //
 //    @Column(name = "img")
 //    private String img;
-
 
     public String getDescription() {
         return description;

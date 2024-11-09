@@ -1,6 +1,6 @@
-package zuhriddinscode.courses.repository;
+package zuhriddinscode.something.repository;
 
-import zuhriddinscode.courses.courseEntity.CourseEntity;
+import zuhriddinscode.something.entity.CourseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
