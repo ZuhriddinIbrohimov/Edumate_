@@ -6,12 +6,7 @@ import zuhriddinscode.something.dto.CategoryDTO;
 import zuhriddinscode.something.entity.CategoryEntity;
 import zuhriddinscode.something.repository.CategoryRepository;
 import zuhriddinscode.something.service.ICategoryService;
-import zuhriddinscode.something.dto.CourseDTO;
-import zuhriddinscode.something.entity.CourseEntity;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements ICategoryService {

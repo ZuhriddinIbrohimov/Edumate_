@@ -29,7 +29,6 @@ public class CourseServiceImpl implements ICourseService {
 
         CourseEntity entity = new CourseEntity();
         entity.setName(courseDTO.getName());
-        entity.setTypeId(courseDTO.getTypeId());
         entity.setPeriod(courseDTO.getPeriod());
         entity.setPrice(courseDTO.getPrice());
 

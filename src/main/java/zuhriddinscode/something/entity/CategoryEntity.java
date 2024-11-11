@@ -2,10 +2,6 @@ package zuhriddinscode.something.entity;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 @Entity
 @Table(name ="category")
 public class CategoryEntity {
@@ -38,11 +34,4 @@ public class CategoryEntity {
         this.name = name;
     }
 
-//    public List<CourseEntity> getCourses() {
-//        return courses;
-//    }
-//
-//    public void setCourses(List<CourseEntity> courses) {
-//        this.courses = courses;
-//    }
 }

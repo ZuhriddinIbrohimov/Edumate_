@@ -11,7 +11,6 @@ import zuhriddinscode.something.service.ICourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -58,5 +57,11 @@ public class CourseController {
         }       ).orElseThrow(() -> new ResourceNotFoundException("Not found Category with id = " + categoryId));
         return new ResponseEntity<>(courseEntity, HttpStatus.CREATED);
     }
+
+//    @GetMapping(value = "/getCourseById")
+//    public ResponseEntity<?> getCourseById(){
+//
+//        return ResponseEntity.ok();
+//    }
 
 }

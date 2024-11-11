@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import zuhriddinscode.something.dto.CategoryDTO;
 import zuhriddinscode.something.entity.CategoryEntity;
-import zuhriddinscode.something.entity.CourseEntity;
 import zuhriddinscode.something.service.ICategoryService;
 import java.util.List;
 
