@@ -1,37 +1,24 @@
 package zuhriddinscode.something.controller;
 
-import io.swagger.annotations.Api;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import zuhriddinscode.something.dto.CategoryDTO;
-import zuhriddinscode.something.entity.CategoryEntity;
-import zuhriddinscode.something.service.ICategoryService;
-import java.util.List;
+import zuhriddinscode.something.repository.CategoryRepository;
+import zuhriddinscode.something.service.CategoryService;
 
 @RestController
-@RequestMapping("/api/category")
-@Api(tags = "Category")
+@RequestMapping("/category")
 public class CategoryController {
 
     @Autowired
-    private ICategoryService categoryService;
+    private CategoryService categoryService;
 
-    // Barcha kategoriyalarni olish
-    @GetMapping
-    public List<CategoryEntity> getAllCategories() {
-        return categoryService.getAllCategories();
+    @PostMapping("/admin")
+    public ResponseEntity<?> create(@Valid @RequestBody CategoryDTO dto){
+        return ResponseEntity.ok(categoryService.create(dto));
     }
 
-//     Kategoriyani ID bo‘yicha olish va o'sha kategoriya bo'yicha kurslarni ko'rsatish
-//    @GetMapping("/{id}/courses")
-//    public List<CourseEntity> getCoursesByCategory (@PathVariable Integer id) {
-//        return categoryService.getCategoryById(id).getCourses();
-//    }
 
-    @PostMapping(value = "/addCategory")
-    public ResponseEntity<?> addCourse (@RequestBody CategoryDTO categoryDTO) {
-      CategoryDTO categoryDTO1 = categoryService.addCategory(categoryDTO);
-      return ResponseEntity.ok(categoryDTO1);
-    }
 }

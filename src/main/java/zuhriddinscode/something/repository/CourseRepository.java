@@ -7,6 +7,4 @@ import java.util.List;
 
 public interface CourseRepository extends JpaRepository<CourseEntity, Integer> {
 
-    List<CourseEntity> findCourseByTypeId (int typeId);
-
 }

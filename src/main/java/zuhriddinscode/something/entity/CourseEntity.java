@@ -8,7 +8,7 @@ public class CourseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer courseId;
 
     @Column(name = "name")
     private String name;
@@ -22,9 +22,13 @@ public class CourseEntity {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
+    @ManyToOne //fetch =FetchType.LAZY
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
+
+
+
+
 
     public CategoryEntity getCategory() {
         return category;
@@ -42,12 +46,12 @@ public class CourseEntity {
         this.description = description;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getCourseId() {
+        return courseId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
     }
 
     public String getName() {

@@ -13,12 +13,7 @@ public class CategoryEntity {
     @Column(name = "name")
     private String name;
 
-//    @OneToMany()
-//    @JoinColumn(name = "category_id")   // many tomonda create type
-//    private List<CourseEntity> courses;
-
-
-    public Integer getId() {
+    public Integer getId(  ) {
         return id;
     }
 
