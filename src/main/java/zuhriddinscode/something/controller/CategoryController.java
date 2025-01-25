@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import zuhriddinscode.something.dto.CategoryDTO;
-import zuhriddinscode.something.repository.CategoryRepository;
 import zuhriddinscode.something.service.CategoryService;
 
 @RestController

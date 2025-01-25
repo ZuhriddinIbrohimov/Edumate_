@@ -1,6 +1,7 @@
 package zuhriddinscode.something.entity;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name ="category")
@@ -13,11 +14,14 @@ public class CategoryEntity {
     @Column(name = "name")
     private String name;
 
-    public Integer getId(  ) {
+    @Column( name = "created_date")
+    private LocalDateTime createdDate = LocalDateTime.now();
+
+    public Integer getId( ) {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId (Integer id) {
         this.id = id;
     }
 
@@ -27,6 +31,14 @@ public class CategoryEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
 }

@@ -8,10 +8,10 @@ public class CourseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer courseId;
+    private Integer id;
 
     @Column(name = "name")
-    private String name;
+    private String title;
 
     @Column(name = "price")
     private Float price;
@@ -22,13 +22,36 @@ public class CourseEntity {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne //fetch =FetchType.LAZY
-    @JoinColumn(name = "category_id")
+    @Column (name = "category_id")
+    private Integer categoryId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", updatable = false, insertable = false)
     private CategoryEntity category;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
+    public Integer getCategoryId() {
+        return categoryId;
+    }
 
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public CategoryEntity getCategory() {
         return category;
@@ -46,18 +69,6 @@ public class CourseEntity {
         this.description = description;
     }
 
-    public Integer getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public Float getPrice() {
         return price;
     }
@@ -72,9 +83,5 @@ public class CourseEntity {
 
     public void setPeriod(Integer period) {
         this.period = period;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
