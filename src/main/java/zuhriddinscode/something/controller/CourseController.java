@@ -35,4 +35,10 @@ public class CourseController {
         }
         return ResponseEntity.badRequest().build();
     }
+
+    @DeleteMapping ( "/moderator/delete" )
+    public ResponseEntity <?> delete(@RequestParam("id") Integer id) {
+        Boolean response = courseService.delete(id);
+        return ResponseEntity.ok (response);
+    }
 }

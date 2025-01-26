@@ -60,4 +60,12 @@ public class CourseService {
     private void get( Integer id ){
         repository.findById(id).orElseThrow(()-> { throw new ItemNotFoundException("Not found"); });
     }
+
+    public Boolean delete(Integer id){
+        get(id);
+        int i = repository.delete(id);
+        return i == 1;
+    }
+
+
 }

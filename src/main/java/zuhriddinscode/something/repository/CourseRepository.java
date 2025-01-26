@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import zuhriddinscode.something.entity.CourseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import zuhriddinscode.something.types.CourseStatus;
 import java.util.Optional;
 
 public interface CourseRepository extends JpaRepository<CourseEntity, Integer> {
@@ -20,4 +19,9 @@ public interface CourseRepository extends JpaRepository<CourseEntity, Integer> {
                 String description,
                 Integer categoryId,
                 Integer id);
+
+    @Transactional
+    @Modifying
+    @Query("delete from CourseEntity where id =?1")
+    int delete(Integer id);
 }

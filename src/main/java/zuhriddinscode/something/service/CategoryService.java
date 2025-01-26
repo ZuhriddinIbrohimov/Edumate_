@@ -43,5 +43,9 @@ public class CategoryService {
         dto.setName (entity.getName());
         return dto;
     }
+    public Boolean delete(Integer id){
+        categoryRepository.deleteById(id);
+        return true;
+    }
 
 }

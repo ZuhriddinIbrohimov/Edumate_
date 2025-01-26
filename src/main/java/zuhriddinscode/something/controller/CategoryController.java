@@ -19,5 +19,9 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.create(dto));
     }
 
-
+    @DeleteMapping("/admin")
+    public ResponseEntity<?> delete(@RequestParam Integer id){
+        Boolean response = categoryService.delete(id);
+        return ResponseEntity.ok(response);
+    }
 }
