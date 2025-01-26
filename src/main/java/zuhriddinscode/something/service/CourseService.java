@@ -3,14 +3,20 @@ package zuhriddinscode.something.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zuhriddinscode.something.dto.CourseCreateDTO;
+import zuhriddinscode.something.dto.CourseDTO;
 import zuhriddinscode.something.entity.CourseEntity;
+import zuhriddinscode.something.exception.ItemNotFoundException;
 import zuhriddinscode.something.repository.CourseRepository;
+import java.util.Optional;
 
 @Service
 public class CourseService {
 
     @Autowired
-    CourseRepository repository;
+    private CourseRepository repository;
+
+    @Autowired
+    private CategoryService categoryService;
 
     public CourseCreateDTO create(CourseCreateDTO dto) {
         CourseEntity entity = toEntity(dto);
@@ -31,4 +37,27 @@ public class CourseService {
         return entity;
     }
 
+    public CourseDTO getById(Integer id) {
+        Optional<CourseEntity> optional = repository.findById(id);
+        if (optional.isEmpty()) {
+            throw new ItemNotFoundException("Course not found");
+        }
+        CourseEntity entity = optional.get();
+        CourseDTO dto = new CourseDTO();
+        dto.setId(entity.getId());
+        dto.setDescription(entity.getDescription());
+        dto.setPrice(entity.getPrice());
+        dto.setPeriod(entity.getPeriod());
+        dto.setCategory( categoryService.getById (entity.getCategoryId()) );
+        return dto;
+    }
+
+    public int update ( CourseDTO dto, Integer id ){
+        get(id);
+        return repository.update(dto.getTitle(),dto.getDescription(),dto.getCategoryId(),id);
+    }
+
+    private void get( Integer id ){
+        repository.findById(id).orElseThrow(()-> { throw new ItemNotFoundException("Not found"); });
+    }
 }

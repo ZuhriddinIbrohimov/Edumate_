@@ -1,5 +1,5 @@
 package zuhriddinscode.something.types;
 
-public enum UserRole {
+public enum ProfileRole {
     USER, ADMIN, MODERATOR, MANAGER
 }

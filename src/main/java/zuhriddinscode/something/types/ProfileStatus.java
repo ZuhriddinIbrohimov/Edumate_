@@ -1,5 +1,5 @@
 package zuhriddinscode.something.types;
 
-public enum UserStatus {
+public enum ProfileStatus {
     ACTIVE, INACTIVE, BLOCK
 }
