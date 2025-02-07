@@ -2,8 +2,8 @@ package zuhriddinscode.something.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import zuhriddinscode.something.dto.CourseCreateDTO;
-import zuhriddinscode.something.dto.CourseDTO;
+import zuhriddinscode.something.dto.course.CourseCreateDTO;
+import zuhriddinscode.something.dto.course.CourseDTO;
 import zuhriddinscode.something.entity.CourseEntity;
 import zuhriddinscode.something.exception.ItemNotFoundException;
 import zuhriddinscode.something.repository.CourseRepository;

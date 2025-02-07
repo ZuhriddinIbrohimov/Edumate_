@@ -15,7 +15,7 @@ public class CategoryEntity {
     private String name;
 
     @Column( name = "created_date")
-    private LocalDateTime createdDate = LocalDateTime.now();
+    private LocalDateTime createdDate = LocalDateTime.now();    // category  name qachon biriktirilgan
 
     public Integer getId( ) {
         return id;

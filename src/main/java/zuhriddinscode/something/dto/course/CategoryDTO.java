@@ -1,9 +1,8 @@
-package zuhriddinscode.something.dto;
+package zuhriddinscode.something.dto.course;
 
 public class CategoryDTO {
 
     private Integer id;
-
     private String name;
 
 

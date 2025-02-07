@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface CourseRepository extends JpaRepository<CourseEntity, Integer> {
 
-    Optional<CourseEntity> findById(Integer id);
+    Optional<CourseEntity> findById (Integer id);
 
     @Transactional
     @Modifying

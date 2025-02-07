@@ -2,8 +2,8 @@ package zuhriddinscode.something.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import zuhriddinscode.something.dto.CourseCreateDTO;
-import zuhriddinscode.something.dto.CourseDTO;
+import zuhriddinscode.something.dto.course.CourseCreateDTO;
+import zuhriddinscode.something.dto.course.CourseDTO;
 import zuhriddinscode.something.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

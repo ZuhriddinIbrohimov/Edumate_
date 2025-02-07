@@ -1,7 +1,6 @@
-package zuhriddinscode.something.dto;
+package zuhriddinscode.something.dto.course;
 
 import jakarta.validation.constraints.Positive;
-
 import java.util.Date;
 
 public class CourseCreateDTO {

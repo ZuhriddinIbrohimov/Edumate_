@@ -2,11 +2,10 @@ package zuhriddinscode.something.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import zuhriddinscode.something.dto.CategoryDTO;
+import zuhriddinscode.something.dto.course.CategoryDTO;
 import zuhriddinscode.something.entity.CategoryEntity;
 import zuhriddinscode.something.exception.ItemNotFoundException;
 import zuhriddinscode.something.repository.CategoryRepository;
-
 import java.time.LocalDateTime;
 
 @Service

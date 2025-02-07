@@ -1,4 +1,4 @@
-package zuhriddinscode.something.dto;
+package zuhriddinscode.something.dto.course;
 
 import java.util.Date;
 
