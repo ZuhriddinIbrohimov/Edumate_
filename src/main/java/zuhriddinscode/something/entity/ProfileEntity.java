@@ -1,7 +1,8 @@
 package zuhriddinscode.something.entity;
 
 import jakarta.persistence.*;
-
+import zuhriddinscode.something.types.GeneralStatus;
+import zuhriddinscode.something.types.ProfileStatus;
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,8 +25,32 @@ public class ProfileEntity {
     @Column(name = "password")
     private String password;
 
+    @Column(name ="status")
+    @Enumerated(EnumType.STRING)
+    private GeneralStatus status;
+
+    @Column(name = "visible")
+    private Boolean visible;
+
     @Column( name ="created_date" )
     private LocalDateTime CreatedDate;
+
+
+    public Boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
+    }
+
+    public GeneralStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(GeneralStatus status) {
+        this.status = status;
+    }
 
     public Integer getId() {
         return id;
