@@ -22,7 +22,7 @@ public class CourseController {
     }
 
     @GetMapping("/moderator/{id}")
-    public ResponseEntity<?> getById(@PathVariable("id") Integer id){
+    public ResponseEntity<?> getById (@PathVariable("id") Integer id){
         CourseDTO response = courseService.getById(id);
         return ResponseEntity.ok(response);
     }
