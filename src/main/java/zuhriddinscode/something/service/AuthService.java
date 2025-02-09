@@ -12,6 +12,7 @@ import zuhriddinscode.something.repository.ProfileRepository;
 import zuhriddinscode.something.repository.ProfileRoleRepository;
 import zuhriddinscode.something.types.GeneralStatus;
 import zuhriddinscode.something.types.ProfileRole;
+import zuhriddinscode.something.util.JwtUtil;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -56,26 +57,26 @@ public class AuthService {
     public ProfileDTO login(AuthDTO authDTO) {
         // dto
         //check
-        Optional<ProfileEntity> optional = profileRepository.findByUsernameAndVisibleTrue(authDTO.getUsername());
+        Optional<ProfileEntity> optional = profileRepository.findByUsername(authDTO.getUsername());
         if (optional.isEmpty()) {
             throw new AppBadException("Username or password wrong");
         }
 
         ProfileEntity profile = optional.get();
-        if (bCryptPasswordEncoder.matches(authDTO.getPassword(), profile.getPassword())) {
+        if (!bCryptPasswordEncoder.matches(authDTO.getPassword(), profile.getPassword())) {
             throw new AppBadException("Username or password wrong");
         }
 
-        if (!profile.getStatus().equals(GeneralStatus.ACTIVE)) {
-            throw new AppBadException("Wrong Status");
-        }
+//        if (!profile.getStatus().equals(GeneralStatus.ACTIVE)) {
+//            throw new AppBadException("Wrong Status");
+//        }
+
         ProfileDTO response = new ProfileDTO();
         response.setName(profile.getName());
         response.setSurname(profile.getSurname());
         response.setRoleList(profileRoleRepository.getAllRolesListByProfileId(profile.getId()));
-//        response.setJwt();
+        response.setJwt(JwtUtil.encode(profile.getId(), response.getRoleList() ));
 
-
-        return null;
+        return response;
     }
 }

@@ -9,6 +9,6 @@ import java.util.List;
 public interface ProfileRoleRepository extends CrudRepository<ProfileRoleEntity, Integer> {
 
     @Query("select p.roles from ProfileRoleEntity p where p.profileId =?1")
-    List<ProfileRole> getAllRolesListByProfileId ( Integer profileId );
+    List<ProfileRole> getAllRolesListByProfileId (Integer profileId );
 
 }

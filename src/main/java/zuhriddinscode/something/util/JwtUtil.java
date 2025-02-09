@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import zuhriddinscode.something.dto.JwtDTO;
 import zuhriddinscode.something.types.ProfileRole;
 import javax.crypto.SecretKey;
 import java.util.*;
@@ -12,10 +13,10 @@ import java.util.stream.Collectors;
 
 public class JwtUtil {
 
-    private static final int tokenLiveTime = 1000 * 3600 * 24; // 1-day
+    private static final int tokenLiveTime = 1000 * 3600 * 24; //1-day
     private static final String secretKey = "veryLongSecretmazgillattayevlasharaaxmojonjinnijonsurbetbekkiydirhonuxlatdibekloxovdangasabekochkozjonduxovmashaynikmaydagapchishularnioqiganbolsangizgapyoqaniqsizmazgi";
 
-    public static String encode(Integer id, List<ProfileRole> roleList) {   // bir nechta role bo'lsa
+    public static String encode (Integer id, List<ProfileRole> roleList) { // bir nechta role bo'lsa
         String strRoles = roleList.stream().map(item -> item.name())
                 .collect(Collectors.joining(","));
 
@@ -39,10 +40,10 @@ public class JwtUtil {
                 .compact();
     }
 
-    public static Integer decode(String token) {
+    public static JwtDTO decode(String token) {
         Claims claims = Jwts
                 .parser()
-                .verifyWith(getSignInKey())
+                .verifyWith ( getSignInKey())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
@@ -50,20 +51,20 @@ public class JwtUtil {
         Integer id = Integer.valueOf(claims.getSubject());
         String strRole = (String) claims.get("role");
         //Role_User, Role_Admin
-        String [] roleArray = strRole.split(",");
-        List<ProfileRole> roleList = new ArrayList<>();
-        for (String role : roleArray ){
-            roleList.add(ProfileRole.valueOf(role));
-        }
+//        String [] roleArray = strRole.split(",");
+//        List<ProfileRole> roleList = new ArrayList<>();
+//        for (String role : roleArray ){
+//            roleList.add(ProfileRole.valueOf(role));
+//        }
 
-
-        ProfileRole role = ProfileRole.valueOf((String) claims.get("role"));
-
-
-
+        //yuqoridagini boshqacha varianti
+        List<ProfileRole> roleList = Arrays.stream(strRole.split(","))
+                .map(item -> ProfileRole.valueOf(item))
+                .collect(Collectors.toList());
+//        ProfileRole role = ProfileRole.valueOf((String) claims.get("role"));
 //        String strRoleList = (String) claims.get("role");
 
-        return Integer.valueOf(claims.getSubject());
+        return new JwtDTO(id,roleList);
     }
 
     private static SecretKey getSignInKey() {
