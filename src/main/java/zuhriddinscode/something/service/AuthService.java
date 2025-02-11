@@ -54,7 +54,7 @@ public class AuthService {
         return "Successfully registered";
     }
 
-    public ProfileDTO login(AuthDTO authDTO) {
+    public ProfileDTO login (AuthDTO authDTO) {
         // dto
         //check
         Optional<ProfileEntity> optional = profileRepository.findByUsername(authDTO.getUsername());
@@ -75,7 +75,7 @@ public class AuthService {
         response.setName(profile.getName());
         response.setSurname(profile.getSurname());
         response.setRoleList(profileRoleRepository.getAllRolesListByProfileId(profile.getId()));
-        response.setJwt(JwtUtil.encode(profile.getId(), response.getRoleList() ));
+        response.setJwt(JwtUtil.encode(profile.getUsername() ,profile.getId(), response.getRoleList() ));
 
         return response;
     }
