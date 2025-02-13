@@ -9,7 +9,6 @@ import zuhriddinscode.something.entity.ProfileEntity;
 import zuhriddinscode.something.repository.ProfileRepository;
 import zuhriddinscode.something.repository.ProfileRoleRepository;
 import zuhriddinscode.something.types.ProfileRole;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +29,6 @@ public class CustomUserDetailsService  implements UserDetailsService {
         }
         ProfileEntity profile = optional.get();
         List<ProfileRole> roleList = profileRoleRepository.getAllRolesListByProfileId(profile.getId());
-        return new CustomUserDetails ( profile, roleList );
+        return new CustomUserDetails (profile, roleList );
     }
 }

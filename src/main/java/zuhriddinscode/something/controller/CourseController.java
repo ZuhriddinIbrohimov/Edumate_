@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/course")
 public class CourseController {
 
+    // enroll,
+    // course content
     @Autowired
     private CourseService courseService;
 

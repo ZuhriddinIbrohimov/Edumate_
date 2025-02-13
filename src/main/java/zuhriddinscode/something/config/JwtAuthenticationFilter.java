@@ -44,24 +44,23 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (header == null || !header.startsWith("Bearer ")) {
             filterChain.doFilter(request, response); // Continue the filter chain
         }
-
         try {
-        final String token = header.substring(7).trim();
-        JwtDTO jwtDTO = JwtUtil.decode(token);
+            final String token = header.substring(7).trim();
+            JwtDTO jwtDTO = JwtUtil.decode(token);
 
-        // load user depending on role
-        String username = jwtDTO.getUsername();
-        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+            // load user depending on role
+            String username = jwtDTO.getUsername();
+            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 
-        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        filterChain.doFilter(request, response); // Continue the filter chain
-    } catch (JwtException | UsernameNotFoundException e) {
             filterChain.doFilter(request, response); // Continue the filter chain
-            }
+        } catch (JwtException | UsernameNotFoundException e) {
+            filterChain.doFilter(request, response); // Continue the filter chain
+        }
 
     }
 }

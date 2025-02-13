@@ -11,6 +11,16 @@ public class ProfileDTO {
     private String surname;
     private List<ProfileRole> roleList;
     private String jwt;
+    private String password;
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public List<ProfileRole> getRoleList() {
         return roleList;

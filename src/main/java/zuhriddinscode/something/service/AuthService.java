@@ -45,6 +45,7 @@ public class AuthService {
         entity.setName(dto.getName());
         entity.setSurname(dto.getSurname());
         entity.setUsername(dto.getUsername());
+
         entity.setPassword(bCryptPasswordEncoder.encode(dto.getPassword()));
         entity.setCreatedDate(LocalDateTime.now());
         profileRepository.save(entity);
@@ -75,7 +76,7 @@ public class AuthService {
         response.setName(profile.getName());
         response.setSurname(profile.getSurname());
         response.setRoleList(profileRoleRepository.getAllRolesListByProfileId(profile.getId()));
-        response.setJwt(JwtUtil.encode(profile.getUsername() ,profile.getId(), response.getRoleList() ));
+        response.setJwt(JwtUtil.encode(profile.getUsername() , profile.getId(), response.getRoleList() ));
 
         return response;
     }

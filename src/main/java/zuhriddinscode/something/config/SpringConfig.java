@@ -55,7 +55,10 @@ public class SpringConfig {
 
     public static final String[] AUTH_WHITELIST = {
             "/auth/**",
-            "/auth/login"
+            "/auth/login",
+            "/course/**",
+            "/category/**",
+            "/profile/**"
     };
 
     @Bean

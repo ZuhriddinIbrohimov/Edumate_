@@ -7,5 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/teacher")
 public class TeacherController {
 
+// create, update, delete, search, getTeacher
+// linkedin, facebook link
 
 }
