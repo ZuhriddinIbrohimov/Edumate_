@@ -38,10 +38,11 @@ public class ProfileService {
     }
 
     public String update(ProfileDTO dto) {
-
         ProfileEntity entity = new ProfileEntity();
-
-
+        entity.setName(dto.getName());
+        entity.setUsername(dto.getUsername());
+        entity.setPassword(dto.getPassword());
+        profileRepository.save(entity);
         return "1";
     }
 }

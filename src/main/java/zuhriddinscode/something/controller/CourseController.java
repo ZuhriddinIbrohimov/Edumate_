@@ -24,23 +24,23 @@ public class CourseController {
     }
 
     @GetMapping("/moderator/{id}")
-    public ResponseEntity<?> getById (@PathVariable("id") Integer id){
+    public ResponseEntity<?> getById(@PathVariable("id") Integer id) {
         CourseDTO response = courseService.getById(id);
         return ResponseEntity.ok(response);
     }
 
-    @PutMapping ("/moderator/update")
-    public ResponseEntity<?> update (@Valid @RequestBody CourseDTO dto, @RequestParam ("id") Integer id ){
-        int response = courseService.update(dto,id);
+    @PutMapping("/moderator/update")
+    public ResponseEntity<?> update(@Valid @RequestBody CourseDTO dto, @RequestParam("id") Integer id) {
+        int response = courseService.update(dto, id);
         if (response == 1) {
             return ResponseEntity.ok(response);
         }
         return ResponseEntity.badRequest().build();
     }
 
-    @DeleteMapping ( "/moderator/delete" )
-    public ResponseEntity <?> delete(@RequestParam("id") Integer id) {
+    @DeleteMapping("/moderator/delete")
+    public ResponseEntity<?> delete(@RequestParam("id") Integer id) {
         Boolean response = courseService.delete(id);
-        return ResponseEntity.ok (response);
+        return ResponseEntity.ok(response);
     }
 }

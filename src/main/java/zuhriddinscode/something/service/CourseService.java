@@ -7,6 +7,7 @@ import zuhriddinscode.something.dto.course.CourseDTO;
 import zuhriddinscode.something.entity.CourseEntity;
 import zuhriddinscode.something.exception.ItemNotFoundException;
 import zuhriddinscode.something.repository.CourseRepository;
+
 import java.util.Optional;
 
 @Service
@@ -48,20 +49,22 @@ public class CourseService {
         dto.setDescription(entity.getDescription());
         dto.setPrice(entity.getPrice());
         dto.setPeriod(entity.getPeriod());
-        dto.setCategory( categoryService.getById (entity.getCategoryId()) );
+        dto.setCategory(categoryService.getById(entity.getCategoryId()));
         return dto;
     }
 
-    public int update ( CourseDTO dto, Integer id ){
+    public int update(CourseDTO dto, Integer id) {
         get(id);
-        return repository.update(dto.getTitle(),dto.getDescription(),dto.getCategoryId(),id);
+        return repository.update(dto.getTitle(), dto.getDescription(), dto.getCategoryId(), id);
     }
 
-    private void get( Integer id ){
-        repository.findById(id).orElseThrow(()-> { throw new ItemNotFoundException("Not found"); });
+    private void get(Integer id) {
+        repository.findById(id).orElseThrow(() -> {
+            throw new ItemNotFoundException("Not found");
+        });
     }
 
-    public Boolean delete(Integer id){
+    public Boolean delete(Integer id) {
         get(id);
         int i = repository.delete(id);
         return i == 1;

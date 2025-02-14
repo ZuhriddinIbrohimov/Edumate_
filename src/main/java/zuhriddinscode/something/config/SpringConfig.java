@@ -58,7 +58,8 @@ public class SpringConfig {
             "/auth/login",
             "/course/**",
             "/category/**",
-            "/profile/**"
+            "/profile/**",
+            "/post/**"
     };
 
     @Bean

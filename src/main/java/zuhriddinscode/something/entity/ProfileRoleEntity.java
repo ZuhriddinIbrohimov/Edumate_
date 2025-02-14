@@ -2,13 +2,10 @@ package zuhriddinscode.something.entity;
 
 import jakarta.persistence.*;
 import zuhriddinscode.something.types.ProfileRole;
-
-
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "profile_role")
-
 public class ProfileRoleEntity {
 
     @Id
@@ -28,8 +25,6 @@ public class ProfileRoleEntity {
 
     @Column( name = "created_date")
     private LocalDateTime createdDate = LocalDateTime.now();    // profilega shu rol qachon biriktirilgan
-
-
 
 
     public Integer getId() {
