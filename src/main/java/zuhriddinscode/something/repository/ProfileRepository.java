@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface ProfileRepository extends CrudRepository <ProfileEntity, String> {
 
     Optional<ProfileEntity> findByUsername (String username);
-
+    ProfileEntity deleteByUsername (String username );
 }

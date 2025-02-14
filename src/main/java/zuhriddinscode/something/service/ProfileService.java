@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import zuhriddinscode.something.dto.ProfileDTO;
 import zuhriddinscode.something.entity.ProfileEntity;
+import zuhriddinscode.something.exception.AppBadException;
 import zuhriddinscode.something.repository.ProfileRepository;
 import zuhriddinscode.something.types.ProfileRole;
 
@@ -27,7 +28,6 @@ public class ProfileService {
         entity.setName(dto.getName());
         entity.setSurname(dto.getSurname());
         entity.setUsername(dto.getUsername());
-
         entity.setPassword(bCryptPasswordEncoder.encode(dto.getPassword()));
         entity.setCreatedDate(LocalDateTime.now());
         profileRepository.save(entity);
@@ -38,6 +38,8 @@ public class ProfileService {
     }
 
     public String update(ProfileDTO dto) {
+        get(dto);
+
         ProfileEntity entity = new ProfileEntity();
         entity.setName(dto.getName());
         entity.setUsername(dto.getUsername());
@@ -45,4 +47,17 @@ public class ProfileService {
         profileRepository.save(entity);
         return "1";
     }
+
+    protected ProfileEntity get(ProfileDTO dto) {
+        return profileRepository.findByUsername(dto.getUsername()).orElseThrow(() -> new AppBadException("Profile not found"));
+    }
+
+    public String delete (ProfileDTO dto){
+//        get(dto);
+        profileRepository.deleteByUsername(dto.getUsername());
+        return "deleted successfully";
+    }
+
+//    public
+
 }

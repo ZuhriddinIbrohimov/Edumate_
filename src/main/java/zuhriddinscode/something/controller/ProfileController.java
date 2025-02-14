@@ -19,7 +19,16 @@ public class ProfileController {
     }
 
     @PutMapping("/")
-    public ResponseEntity<String> updateAdmin(ProfileDTO profileDTO) {
+    public ResponseEntity<String> updateAdmin( ProfileDTO profileDTO) {
         return ResponseEntity.ok().body(profileService.update(profileDTO));
     }
+
+    @DeleteMapping("/")
+    public ResponseEntity< String > delete ( ProfileDTO profileDTO){
+        return ResponseEntity.ok().body(profileService.delete(profileDTO));
+    }
+
+
+
+
 }
