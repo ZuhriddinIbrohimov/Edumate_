@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import zuhriddinscode.something.entity.ProfileRoleEntity;
 import zuhriddinscode.something.repository.ProfileRoleRepository;
 import zuhriddinscode.something.types.ProfileRole;
-
-
 import java.time.LocalDateTime;
 
 @Service
