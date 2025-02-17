@@ -21,6 +21,9 @@ import java.util.Optional;
 public class AuthService {
 
     @Autowired
+    private EmailSendingService emailSendingService;
+
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
@@ -52,6 +55,8 @@ public class AuthService {
 
         //insert roles
         profileRoleService.create(entity.getId(), ProfileRole.ROLE_USER);
+        //send
+        emailSendingService.sendRegistration( dto.getUsername(), entity.getId() );
         return "Successfully registered";
     }
 

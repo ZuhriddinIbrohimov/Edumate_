@@ -23,7 +23,4 @@ public class TeacherController {
        return ResponseEntity.ok().body(teacherService.create(dto));
     }
 
-
-
-
 }

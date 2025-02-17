@@ -7,7 +7,7 @@ import java.util.Date;
 public class TeacherDTO {
 
     private int id;
-    private ProfileDTO user;
+//    private ProfileDTO user;
     private double salary;
     private String description;
     private String name;
@@ -38,13 +38,13 @@ public class TeacherDTO {
         this.id = id;
     }
 
-    public ProfileDTO getUser() {
-        return user;
-    }
-
-    public void setUser(ProfileDTO user) {
-        this.user = user;
-    }
+//    public ProfileDTO getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(ProfileDTO user) {
+//        this.user = user;
+//    }
 
     public double getSalary() {
         return salary;

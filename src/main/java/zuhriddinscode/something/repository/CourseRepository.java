@@ -2,11 +2,13 @@ package zuhriddinscode.something.repository;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import zuhriddinscode.something.entity.CourseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
+@Repository
 public interface CourseRepository extends JpaRepository<CourseEntity, Integer> {
 
     Optional<CourseEntity> findById (Integer id);
