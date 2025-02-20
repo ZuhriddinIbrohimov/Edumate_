@@ -3,10 +3,7 @@ package zuhriddinscode.something.controller;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import zuhriddinscode.something.dto.AuthDTO;
 import zuhriddinscode.something.dto.ProfileDTO;
 import zuhriddinscode.something.dto.RegistrationDTO;
@@ -22,6 +19,11 @@ public class AuthController {
     @PostMapping("/registration")
     public ResponseEntity <String> registration ( @Valid @RequestBody RegistrationDTO dto){
         return ResponseEntity.ok().body ( authService.registration(dto));
+    }
+
+    @PostMapping("/registration/verification/{id}")
+    public ResponseEntity <String> regVerification (@PathVariable("id") Integer profileId){
+        return ResponseEntity.ok().body ( authService.regVerification(profileId));
     }
 
     @PostMapping("/login")

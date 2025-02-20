@@ -35,6 +35,9 @@ public class AuthService {
     @Autowired
     private ProfileRoleService profileRoleService;
 
+    @Autowired
+    private ProfileService profileService;
+
     public String registration(RegistrationDTO dto) {
 //        Optional<ProfileEntity> optional = profileRepository.findByUsername(dto.getUsername());
 //        if ( optional.isPresent( ) ) {
@@ -63,7 +66,7 @@ public class AuthService {
     public ProfileDTO login (AuthDTO authDTO) {
         // dto
         //check
-        Optional<ProfileEntity> optional = profileRepository.findByUsername(authDTO.getUsername());
+        Optional<ProfileEntity> optional = profileRepository.findByUsernameAndVisibleTrue(authDTO.getUsername());
         if (optional.isEmpty()) {
             throw new AppBadException("Username or password wrong");
         }
@@ -81,8 +84,15 @@ public class AuthService {
         response.setName(profile.getName());
         response.setSurname(profile.getSurname());
         response.setRoleList(profileRoleRepository.getAllRolesListByProfileId(profile.getId()));
-        response.setJwt(JwtUtil.encode(profile.getUsername() , profile.getId(), response.getRoleList() ));
+        response.setJwt(JwtUtil.encode(profile.getUsername(), profile.getId(), response.getRoleList() ));
 
         return response;
+    }
+
+    public String regVerification(Integer profileId) {
+       ProfileEntity profile =  profileService.getById(profileId);
+
+
+       return null;
     }
 }

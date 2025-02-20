@@ -1,5 +1,6 @@
 package zuhriddinscode.something.service;
 
+import io.jsonwebtoken.security.Jwks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import zuhriddinscode.something.repository.ProfileRepository;
 import zuhriddinscode.something.types.ProfileRole;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class ProfileService {
@@ -22,6 +24,17 @@ public class ProfileService {
 
     @Autowired
     private ProfileRoleService profileRoleService;
+
+    public ProfileEntity getById( int id ){
+//        Optional<ProfileEntity> optional = profileRepository.findByIdAndVisibleTrue(id);
+//        if ( optional.isEmpty() ){
+//            throw new AppBadException("Profile Not Found");
+//        }
+
+        return profileRepository.findByIdAndVisibleTrue(id).orElseThrow(()-> {
+            throw new AppBadException("Profile Not Found");
+        });
+    }
 
     public String createAdmin(ProfileDTO dto) {
         ProfileEntity entity = new ProfileEntity();
@@ -37,6 +50,7 @@ public class ProfileService {
         return "Successfully registered";
     }
 
+    // update admin
     public String update(ProfileDTO dto) {
         get(dto);
 
@@ -49,7 +63,7 @@ public class ProfileService {
     }
 
     protected ProfileEntity get(ProfileDTO dto) {
-        return profileRepository.findByUsername(dto.getUsername()).orElseThrow(() -> new AppBadException("Profile not found"));
+        return profileRepository.findByUsernameAndVisibleTrue(dto.getUsername()).orElseThrow(() -> new AppBadException("Profile not found"));
     }
 
     public String delete (ProfileDTO dto){

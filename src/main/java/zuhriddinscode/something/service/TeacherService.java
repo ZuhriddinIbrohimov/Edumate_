@@ -37,6 +37,4 @@ public class TeacherService {
         profileRoleService.create(entity.getId(), ProfileRole.ROLE_ADMIN);
         return "Successfully registered";
     }
-
-
 }
