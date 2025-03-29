@@ -12,9 +12,6 @@ public class TeacherEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-//    @Column(name = "user")
-//    private ProfileDTO user;
-
     @Column(name = "salary")
     private double salary;
 
@@ -56,14 +53,6 @@ public class TeacherEntity {
     public void setId(int id) {
         this.id = id;
     }
-
-//    public ProfileDTO getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(ProfileDTO user) {
-//        this.user = user;
-//    }
 
     public double getSalary() {
         return salary;

@@ -12,6 +12,7 @@ import zuhriddinscode.something.repository.ProfileRepository;
 import zuhriddinscode.something.repository.ProfileRoleRepository;
 import zuhriddinscode.something.types.GeneralStatus;
 import zuhriddinscode.something.types.ProfileRole;
+import zuhriddinscode.something.types.ProfileStatus;
 import zuhriddinscode.something.util.JwtUtil;
 
 import java.time.LocalDateTime;
@@ -59,11 +60,11 @@ public class AuthService {
         //insert roles
         profileRoleService.create(entity.getId(), ProfileRole.ROLE_USER);
         //send
-        emailSendingService.sendRegistration( dto.getUsername(), entity.getId() );
+        emailSendingService.sendRegistration(dto.getUsername(), entity.getId());
         return "Successfully registered";
     }
 
-    public ProfileDTO login (AuthDTO authDTO) {
+    public ProfileDTO login(AuthDTO authDTO) {
         // dto
         //check
         Optional<ProfileEntity> optional = profileRepository.findByUsernameAndVisibleTrue(authDTO.getUsername());
@@ -84,15 +85,20 @@ public class AuthService {
         response.setName(profile.getName());
         response.setSurname(profile.getSurname());
         response.setRoleList(profileRoleRepository.getAllRolesListByProfileId(profile.getId()));
-        response.setJwt(JwtUtil.encode(profile.getUsername(), profile.getId(), response.getRoleList() ));
+        response.setJwt(JwtUtil.encode(profile.getUsername(), profile.getId(), response.getRoleList()));
 
         return response;
     }
 
     public String regVerification(Integer profileId) {
-       ProfileEntity profile =  profileService.getById(profileId);
+        ProfileEntity profile = profileService.getById(profileId);
+        if (profile.getStatus().equals(GeneralStatus.IN_REGISTRATION)) {
+            //   ACTIVE
+            //
+            profile.setStatus(GeneralStatus.ACTIVE);
+            profileRepository.save(profile);
 
-
-       return null;
+        }
+        return null;
     }
 }
