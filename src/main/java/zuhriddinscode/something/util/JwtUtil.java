@@ -7,7 +7,6 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import zuhriddinscode.something.dto.JwtDTO;
 import zuhriddinscode.something.types.ProfileRole;
-
 import javax.crypto.SecretKey;
 import java.util.*;
 import java.util.stream.Collectors;

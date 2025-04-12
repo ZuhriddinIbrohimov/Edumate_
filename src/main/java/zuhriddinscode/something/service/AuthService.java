@@ -41,13 +41,16 @@ public class AuthService {
 
     public String registration(RegistrationDTO dto) {
 //        Optional<ProfileEntity> optional = profileRepository.findByUsername(dto.getUsername());
-//        if ( optional.isPresent( ) ) {
-//            throw new AppBadException ( "Username already exists" );
+//        if (optional.isPresent()) {
+//            ProfileEntity profileEntity = optional.get();
+//            if (profileEntity.getStatus().equals(GeneralStatus.IN_REGISTRATION)) {
+////            profileRoleService.
+//                profileRepository.delete(profileEntity);
+//            } else {
+//                throw new AppBadException("Username already exists");
+//            }
 //        }
-//        ProfileEntity profileEntity = optional.get();
-//
-//        if ( profileEntity. ) {
-//        }
+
         ProfileEntity entity = new ProfileEntity();
         entity.setName(dto.getName());
         entity.setSurname(dto.getSurname());
@@ -86,7 +89,6 @@ public class AuthService {
         response.setSurname(profile.getSurname());
         response.setRoleList(profileRoleRepository.getAllRolesListByProfileId(profile.getId()));
         response.setJwt(JwtUtil.encode(profile.getUsername(), profile.getId(), response.getRoleList()));
-
         return response;
     }
 
